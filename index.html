@@ -389,13 +389,11 @@ main{padding:12px;display:flex;flex-direction:column;gap:14px;padding-bottom:40p
     </label>
   </div>
 
-  <!-- 네이버 진행 바 -->
   <div class="naver-progress" id="naverProgress">
     <div class="naver-progress-bar"><div class="naver-progress-fill" id="naverFill"></div></div>
     <div class="naver-progress-txt" id="naverProgressTxt"></div>
   </div>
 
-  <!-- 설정 저장 바 -->
   <div class="settings-bar" id="settingsBar">
     <span class="settings-bar-txt" id="settingsBarTxt">⚙️ 기본 설정</span>
     <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
@@ -432,7 +430,6 @@ main{padding:12px;display:flex;flex-direction:column;gap:14px;padding-bottom:40p
 
   <div class="filter-summary" id="filterSummary"></div>
 
-  <!-- 검색바 -->
   <div class="search-bar">
     <input type="search" class="search-inp" id="searchInp" placeholder="🔍 수집된 기사에서 검색..." oninput="onSearch()" autocomplete="off">
     <button class="search-clear" id="searchClearBtn" onclick="clearSearch()" style="display:none">✕</button>
@@ -493,24 +490,13 @@ const SOURCES=[
 ];
 
 const TOPICS=[
-  /*
-   * 매칭 기준:
-   * strong: 제목 또는 본문에 1개만 있어도 해당 분야로 확정
-   * normal: 제목(2점) + 본문(1점) 합산 → 2점 이상이면 확정
-   *         즉, 제목에 1개 있거나 / 본문에 2개 있어야 매칭
-   * src   : 해당 언론사 기사는 무조건 포함
-   * matchedTopic: 네이버 검색 결과는 무조건 포함
-   */
-
   {id:'stock', name:'증시', icon:'📊', on:false,
    nq:'증시 코스피 코스닥 주가',
    src:['한국경제','매일경제','이데일리'],
-   // strong: 이 단어 하나만 있어도 증시 기사가 맞음
    strong:['코스피','코스닥','주가','증시','코스피200','코스닥150',
            '나스닥','다우존스','S&P500','공모주','IPO','상한가','하한가',
            '사이드카','서킷브레이커','주식시장','증권시장',
            '외국인순매수','외국인순매도','거래대금','시가총액'],
-   // normal: 2점 이상(제목 1개 or 본문 2개) 필요
    normal:['주식','증권','ETF','선물옵션','배당','자사주']},
 
   {id:'realty', name:'부동산', icon:'🏠', on:false,
@@ -653,6 +639,7 @@ function toggleTheme(){
   isLight=!isLight;
   localStorage.setItem('nbf7-theme', isLight?'light':'dark');
   applyTheme();
+}
 
 // ── 맨 위로 가기 버튼 ──
 function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
@@ -662,7 +649,7 @@ window.addEventListener('scroll',()=>{
   if(window.scrollY>400) btn.classList.add('show');
   else btn.classList.remove('show');
 },{passive:true});
-}
+
 applyTheme();
 let naverClientId=localStorage.getItem('naver-id')||'';
 let naverClientSecret=localStorage.getItem('naver-sec')||'';
@@ -716,8 +703,18 @@ function loadDefaults(){
         if(d.topics[t.id]!==undefined) t.on=d.topics[t.id];
       });
     }
-    if(d.sort) sortMode=d.sort;
-    if(d.count) newsCount=d.count;
+    if(d.sort){
+      sortMode=d.sort;
+      document.querySelectorAll('.sort-btn').forEach(b=>{
+        b.classList.toggle('active', b.textContent.includes(sortMode==='latest'?'최신':sortMode==='oldest'?'오래':''));
+      });
+    }
+    if(d.count){
+      newsCount=d.count;
+      document.querySelectorAll('.cnt-btn').forEach(b=>{
+        b.classList.toggle('active', parseInt(b.textContent)===newsCount);
+      });
+    }
     updateSettingsBarTxt('✅ 저장된 기본값 불러옴');
   }catch(e){}
 }
@@ -995,6 +992,7 @@ function setCount(n,btn){newsCount=n;document.querySelectorAll('.cnt-btn').forEa
 function getSorted(){
   const now=Date.now();
   let items=allItems.filter(item=>!item.pub||(now-new Date(item.pub).getTime())<=TIME_LIMIT);
+  
   // 기본 정렬
   if(sortMode==='latest') items.sort((a,b)=>new Date(b.pub)-new Date(a.pub));
   else if(sortMode==='oldest') items.sort((a,b)=>new Date(a.pub)-new Date(b.pub));
@@ -1003,7 +1001,6 @@ function getSorted(){
   // 스포트라이트 로직 (언론사 + 분야 동시 지원)
   const spSrc = spotlightSrc ? SOURCES.find(s=>s.id===spotlightSrc) : null;
   const spTopic = spotlightTopic ? TOPICS.find(t=>t.id===spotlightTopic) : null;
-  const byDate = (a,b)=>new Date(b.pub)-new Date(a.pub);
   const matchTxt = i=>(i.title+' '+(i.desc||'')).toLowerCase();
   const matchT = i=>{
     if(!spTopic)return true;
@@ -1017,17 +1014,17 @@ function getSorted(){
 
   if(spSrc && spTopic){
     // 언론사+분야 동시: 둘 다 맞는 것 → 언론사만 → 분야만 → 나머지
-    const both = items.filter(i=>matchS(i)&&matchT(i)).sort(byDate);
-    const srcOnly = items.filter(i=>matchS(i)&&!matchT(i)).sort(byDate);
-    const topicOnly = items.filter(i=>!matchS(i)&&matchT(i)).sort(byDate);
+    const both = items.filter(i=>matchS(i)&&matchT(i));
+    const srcOnly = items.filter(i=>matchS(i)&&!matchT(i));
+    const topicOnly = items.filter(i=>!matchS(i)&&matchT(i));
     const rest = items.filter(i=>!matchS(i)&&!matchT(i));
     items=[...both,...srcOnly,...topicOnly,...rest];
   } else if(spSrc){
-    const top=items.filter(i=>matchS(i)).sort(byDate);
+    const top=items.filter(i=>matchS(i));
     const rest=items.filter(i=>!matchS(i));
     items=[...top,...rest];
   } else if(spTopic){
-    const top=items.filter(i=>matchT(i)).sort(byDate);
+    const top=items.filter(i=>matchT(i));
     const rest=items.filter(i=>!matchT(i));
     items=[...top,...rest];
   }
@@ -1106,7 +1103,7 @@ function parseXML(xml,src){
     it.querySelector('title')?.textContent||'',
     it.querySelector('link')?.textContent?.trim()||'',
     it.querySelector('pubDate')?.textContent||'',
-    it.querySelector('description')?.textContent||'',src
+    it.querySelector('description')?.textContent||'',src,true
   )).filter(i=>i.title);
 }
 function mkItem(title,url,pub,desc,src,forceUtc){
