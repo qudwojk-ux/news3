@@ -110,7 +110,6 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--hdr-h);backg
   border-color:#9ca3af;
   background:#ffffff;
 }
-/* 라이트 모드에서 활성화된 정렬 및 개수 버튼 (검은 배경, 흰 글씨) */
 :root.light .sort-btn.active, :root.light .cnt-btn.active {
   background:#000000;
   border-color:#000000;
@@ -150,7 +149,6 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--hdr-h);backg
 .filter-btn.spotlight.src{background:var(--blue);border-color:#fff;color:#fff;box-shadow:0 0 0 2px #fff,0 0 12px var(--blue);font-weight:800}
 .filter-btn.on.topic{background:var(--purple);border-color:var(--purple);color:#fff}
 .filter-btn.spotlight.topic{background:var(--purple);border-color:#fff;color:#fff;box-shadow:0 0 0 2px #fff,0 0 12px var(--purple);font-weight:800}
-.filter-btn.on.topic{background:var(--purple);border-color:var(--purple);color:#fff}
 
 .filter-summary{background:#0a0e1a;border-bottom:1px solid var(--border);padding:6px 14px;display:flex;align-items:center;gap:5px;overflow-x:auto;scrollbar-width:none}
 .filter-summary::-webkit-scrollbar{display:none}
@@ -166,7 +164,6 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--hdr-h);backg
 .settings-btn.save{background:linear-gradient(135deg,#4c1d95,#6d28d9);color:#e9d5ff}
 .settings-btn.reset{background:#1a1a2e;border:1px solid #2a2060;color:#9066cc}
 .settings-btn.load{background:linear-gradient(135deg,#0f4c1a,#166534);color:#86efac;border:1px solid #15803d}
-.saved-badge{display:none;position:absolute;top:-5px;right:-5px;background:#6d28d9;color:#fff;border-radius:8px;font-size:9px;font-weight:800;padding:1px 5px}
 
 .ctrl-bar{background:#090d1a;border-bottom:1px solid var(--border);padding:7px 14px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .ctrl-lbl{font-size:10px;color:var(--text2);flex-shrink:0}
@@ -219,31 +216,6 @@ main{padding:12px;display:flex;flex-direction:column;gap:14px;padding-bottom:40p
 .empty-icon{font-size:32px;margin-bottom:10px}
 .empty-text{font-size:13px;line-height:1.8}
 
-.daegu-section{background:linear-gradient(135deg,var(--gbg),#0c1a0e);border:1px solid var(--gbor);border-radius:14px;padding:14px}
-.daegu-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.daegu-tr{display:flex;align-items:center;gap:7px}
-.daegu-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
-.daegu-title-txt{font-family:'Noto Serif KR',serif;font-size:15px;font-weight:900;color:var(--gtxt)}
-.daegu-refresh{background:#1a4020;border:1px solid #2d6040;border-radius:8px;color:var(--gtxt);padding:6px 10px;font-size:13px;cursor:pointer}
-.daegu-grid{display:flex;flex-direction:column;gap:6px}
-.daegu-card{background:#0d2010;border:1px solid var(--gbor);border-left:3px solid transparent;border-radius:8px;overflow:hidden}
-.daegu-card.expanded{border-left-color:var(--green)}
-.daegu-main{display:flex;gap:8px;padding:10px 11px;cursor:pointer;align-items:flex-start}
-.daegu-rank{font-size:12px;font-weight:900;color:var(--green);flex-shrink:0;padding-top:2px;min-width:18px;font-family:Georgia,serif}
-.daegu-body{flex:1;min-width:0}
-.daegu-card-title{font-family:'Noto Serif KR',serif;font-size:13px;font-weight:700;line-height:1.55;color:#dcfce7;margin-bottom:3px;word-break:keep-all}
-.daegu-meta{display:flex;align-items:center;gap:5px}
-.daegu-source{font-size:10px;color:#166534;font-weight:700;background:#052e16;padding:2px 6px;border-radius:3px}
-.daegu-age{font-size:10px;color:#2d5a30}
-.daegu-arrow{font-size:10px;color:#4ade80;flex-shrink:0;margin-top:3px;transition:transform .2s}
-.daegu-card.expanded .daegu-arrow{transform:rotate(180deg)}
-.daegu-expand{display:none;padding:0 11px 10px;border-top:1px solid #1a3520}
-.daegu-card.expanded .daegu-expand{display:block}
-.daegu-desc{font-size:12px;color:#4ade80;line-height:1.65;padding-top:8px;margin-bottom:8px;opacity:.9;word-break:keep-all}
-.daegu-actions{display:flex;gap:5px}
-.daegu-orig{display:flex;align-items:center;gap:3px;background:#1a4020;border:1px solid #2d6040;border-radius:7px;color:#86efac;padding:6px 11px;font-size:11px;font-weight:700;text-decoration:none;font-family:'Noto Sans KR',sans-serif}
-.daegu-clip{background:transparent;border:1px solid #2d6040;border-radius:7px;color:#4ade80;padding:6px 11px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
-
 .drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:300;display:none}
 .drawer-overlay.open{display:block}
 .drawer{position:fixed;top:0;right:-105%;bottom:0;width:90%;max-width:360px;background:var(--bg2);border-left:1px solid var(--border);z-index:301;transition:right .3s;overflow-y:auto}
@@ -262,6 +234,7 @@ main{padding:12px;display:flex;flex-direction:column;gap:14px;padding-bottom:40p
 .sa-del{background:#180e0e;border-color:#5a1a1a;color:#e87d7d}
 .clear-btn{background:#180e0e;border:1px solid #5a1a1a;border-radius:8px;color:#e87d7d;padding:10px;font-size:12px;font-weight:700;cursor:pointer;width:100%;font-family:'Noto Sans KR',sans-serif}
 .drawer-empty{text-align:center;padding:60px 20px;color:var(--text2)}
+
 /* ── 검색바 ── */
 .search-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:8px 14px;display:flex;align-items:center;gap:8px}
 .search-inp{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:20px;color:var(--text);font-size:13px;padding:8px 14px;outline:none;font-family:'Noto Sans KR',sans-serif;transition:border-color .2s}
@@ -326,7 +299,6 @@ main{padding:12px;display:flex;flex-direction:column;gap:14px;padding-bottom:40p
 @keyframes shimmer{0%,100%{opacity:.35}50%{opacity:.7}}
 @keyframes spin{to{transform:rotate(360deg)}}
 .sp{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle}
-.sp-g{display:inline-block;width:12px;height:12px;border:2px solid rgba(134,239,172,.2);border-top-color:#86efac;border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle}
 </style>
 </head>
 <body>
@@ -472,7 +444,6 @@ main{padding:12px;display:flex;flex-direction:column;gap:14px;padding-bottom:40p
         <div class="empty-text">언론사·분야를 선택하고<br>⚡ 버튼을 눌러 뉴스를 불러오세요<br><small style="color:#334d6a;font-size:11px;margin-top:6px;display:block">크레딧 소모 없음 · 완전 무료</small></div>
       </div>
     </div>
-
   </main>
 </div>
 
@@ -504,117 +475,70 @@ const SOURCES=[
 const TOPICS=[
   {id:'stock', name:'증시', icon:'📊', on:false,
    nq:'증시 코스피 코스닥 주가',
-   strong:['코스피','코스닥','주가','증시','코스피200','코스닥150',
-           '나스닥','다우존스','S&P500','공모주','IPO','상한가','하한가',
-           '사이드카','서킷브레이커','주식시장','증권시장',
-           '외국인순매수','외국인순매도','거래대금','시가총액'],
+   strong:['코스피','코스닥','주가','증시','코스피200','코스닥150','나스닥','다우존스','S&P500','공모주','IPO','상한가','하한가','사이드카','서킷브레이커','주식시장','증권시장','외국인순매수','외국인순매도','거래대금','시가총액'],
    normal:['주식','증권','ETF','선물옵션','배당','자사주']},
 
   {id:'realty', name:'부동산', icon:'🏠', on:false,
    nq:'부동산 아파트 전세 청약',
-   strong:['부동산','아파트','청약','전세','재건축','재개발','분양가',
-           '역전세','갭투자','LTV','DSR','HUG','LH공사','공시가격',
-           '주택담보','임대차','전월세'],
+   strong:['부동산','아파트','청약','전세','재건축','재개발','분양가','역전세','갭투자','LTV','DSR','HUG','LH공사','공시가격','주택담보','임대차','전월세'],
    normal:['집값','매매가','오피스텔','빌라','분양','공급','입주']},
 
   {id:'finance', name:'금융', icon:'💰', on:false,
    nq:'금융 은행 대출 보험',
-   strong:['금융위원회','금감원','금융감독원','카카오뱅크','케이뱅크',
-           '토스뱅크','새마을금고','저축은행','신협','핀테크',
-           '가상자산','비트코인','이더리움','블록체인','CBDC',
-           '예금자보호','국채','회사채','채권시장'],
-   normal:['은행','대출','예금','적금','보험','금리','증권사','카드론',
-           '이자','자산운용','리스크']},
+   strong:['금융위원회','금감원','금융감독원','카카오뱅크','케이뱅크','토스뱅크','새마을금고','저축은행','신협','핀테크','가상자산','비트코인','이더리움','블록체인','CBDC','예금자보호','국채','회사채','채권시장'],
+   normal:['은행','대출','예금','적금','보험','금리','증권사','카드론','이자','자산운용','리스크']},
 
   {id:'economy', name:'경제', icon:'📈', on:false,
    nq:'경제 물가 환율 GDP',
-   strong:['기준금리','한국은행','기재부','경상수지','소비자물가','생산자물가',
-           'GDP','무역수지','외환보유액','경기침체','경기회복',
-           'OECD','WTO통계','양적완화','재정적자','국가채무'],
-   normal:['환율','물가','수출','수입','무역','성장률','실업률',
-           '고용률','관세','경기','긴축','재정','통화정책']},
+   strong:['기준금리','한국은행','기재부','경상수지','소비자물가','생산자물가','GDP','무역수지','외환보유액','경기침체','경기회복','OECD','WTO통계','양적완화','재정적자','국가채무'],
+   normal:['환율','물가','수출','수입','무역','성장률','실업률','고용률','관세','경기','긴축','재정','통화정책']},
 
   {id:'biz', name:'기업', icon:'🏢', on:false,
    nq:'기업 실적 영업이익 M&A',
-   strong:['영업이익','당기순이익','어닝서프라이즈','어닝쇼크','M&A',
-           '인수합병','주주총회','물적분할','인적분할','스핀오프',
-           '기업회생','법정관리','상장폐지','사모펀드','IR행사',
-           '배당확대','자사주매입','지배구조'],
-   normal:['실적','매출','경영','이사회','인수','합병','공시',
-           '구조조정','오너','재벌','총수','지주','계열사']},
+   strong:['영업이익','당기순이익','어닝서프라이즈','어닝쇼크','M&A','인수합병','주주총회','물적분할','인적분할','스핀오프','기업회생','법정관리','상장폐지','사모펀드','IR행사','배당확대','자사주매입','지배구조'],
+   normal:['실적','매출','경영','이사회','인수','합병','공시','구조조정','오너','재벌','총수','지주','계열사']},
 
   {id:'industry', name:'산업', icon:'🏭', on:false,
    nq:'반도체 배터리 자동차 조선 바이오',
-   strong:['반도체','파운드리','메모리반도체','D램','낸드',
-           '배터리셀','양극재','음극재','전기차배터리',
-           '조선소','선박수주','LNG선','철강재','석유화학',
-           '바이오시밀러','신약임상','FDA승인','SMR원전','수소연료전지'],
-   normal:['자동차','배터리','조선','항공','에너지','태양광',
-           '수소','원전','제약','바이오','화학','방산','정유']},
+   strong:['반도체','파운드리','메모리반도체','D램','낸드','배터리셀','양극재','음극재','전기차배터리','조선소','선박수주','LNG선','철강재','석유화학','바이오시밀러','신약임상','FDA승인','SMR원전','수소연료전지'],
+   normal:['자동차','배터리','조선','항공','에너지','태양광','수소','원전','제약','바이오','화학','방산','정유']},
 
   {id:'tech', name:'테크', icon:'💻', on:false,
    nq:'AI 인공지능 테크 스타트업',
-   strong:['인공지능','챗GPT','LLM','생성형AI','오픈AI','앤스로픽',
-           '클라우드컴퓨팅','데이터센터','사이버보안','랜섬웨어',
-           '자율주행','로보틱스','메타버스','XR기기',
-           '유니콘기업','벤처캐피탈','시드투자'],
-   normal:['AI','IT','플랫폼','스타트업','앱','소프트웨어',
-           '해킹','보안','5G','6G','GPU','NPU','클라우드',
-           '빅데이터','드론','로봇']},
+   strong:['인공지능','챗GPT','LLM','생성형AI','오픈AI','앤스로픽','클라우드컴퓨팅','데이터센터','사이버보안','랜섬웨어','자율주행','로보틱스','메타버스','XR기기','유니콘기업','벤처캐피탈','시드투자'],
+   normal:['AI','IT','플랫폼','스타트업','앱','소프트웨어','해킹','보안','5G','6G','GPU','NPU','클라우드','빅데이터','드론','로봇']},
 
   {id:'society', name:'사회', icon:'🏙️', on:false,
    nq:'사건 사고 교육 복지 의료',
-   strong:['살인','강도','성범죄','아동학대','학교폭력','의사파업',
-           '국민연금','건강보험료','최저임금','산업재해','고용보험',
-           '기초생활수급','장애인','난민','노동조합파업'],
-   normal:['사건','사고','범죄','교육','복지','의료','경찰','검찰',
-           '법원','화재','지진','홍수','태풍','저출생','고령']},
+   strong:['살인','강도','성범죄','아동학대','학교폭력','의사파업','국민연금','건강보험료','최저임금','산업재해','고용보험','기초생활수급','장애인','난민','노동조합파업'],
+   normal:['사건','사고','범죄','교육','복지','의료','경찰','검찰','법원','화재','지진','홍수','태풍','저출생','고령']},
 
   {id:'politics', name:'정치', icon:'🏛️', on:false,
    nq:'정치 국회 대통령 선거',
-   strong:['국회의원','대통령실','국무총리','탄핵소추','개헌',
-           '총선','대선','보궐선거','국정감사','예산안심사',
-           '필리버스터','교섭단체','원내대표','당대표','공천',
-           '민주당','국민의힘','개혁신당'],
-   normal:['국회','대통령','선거','여당','야당','법안','정부',
-           '장관','정당','의원','의석','청문회','입법']},
+   strong:['국회의원','대통령실','국무총리','탄핵소추','개헌','총선','대선','보궐선거','국정감사','예산안심사','필리버스터','교섭단체','원내대표','당대표','공천','민주당','국민의힘','개혁신당'],
+   normal:['국회','대통령','선거','여당','야당','법안','정부','장관','정당','의원','의석','청문회','입법']},
 
   {id:'world', name:'국제', icon:'🌐', on:false,
    nq:'국제 미국 중국 외교 전쟁',
-   strong:['나토','NATO','유엔안보리','G7정상','G20정상',
-           '대만해협','우크라이나전쟁','가자지구','핵협상',
-           '경제제재','외교부장관','정상회담','한미동맹',
-           '미중갈등','트럼프','시진핑','푸틴','바이든'],
-   normal:['미국','중국','일본','러시아','유럽','외교','북한',
-           '전쟁','UN','EU','IMF','국제','해외','이스라엘',
-           '이란','중동','인도','영국','독일']},
+   strong:['나토','NATO','유엔안보리','G7정상','G20정상','대만해협','우크라이나전쟁','가자지구','핵협상','경제제재','외교부장관','정상회담','한미동맹','미중갈등','트럼프','시진핑','푸틴','바이든'],
+   normal:['미국','중국','일본','러시아','유럽','외교','북한','전쟁','UN','EU','IMF','국제','해외','이스라엘','이란','중동','인도','영국','독일']},
 
   {id:'sports', name:'스포츠', icon:'⚽', on:false,
    nq:'스포츠 야구 축구 KBO',
-   strong:['KBO','K리그','프로야구','프로축구','국가대표팀',
-           '올림픽','아시안게임','월드컵','챔피언스리그',
-           '홈런','방어율','타율','득점왕','MVP'],
-   normal:['야구','축구','농구','배구','골프','테니스','수영',
-           '선수','감독','경기','우승','결승','드래프트','FA']},
+   strong:['KBO','K리그','프로야구','프로축구','국가대표팀','올림픽','아시안게임','월드컵','챔피언스리그','홈런','방어율','타율','득점왕','MVP'],
+   normal:['야구','축구','농구','배구','골프','테니스','수영','선수','감독','경기','우승','결승','드래프트','FA']},
 
   {id:'culture', name:'문화·연예', icon:'🎬', on:false,
    nq:'연예 드라마 영화 K팝',
-   strong:['오스카','칸영화제','백상예술대상','청룡영화상',
-           'OTT','넷플릭스','디즈니플러스','왓챠',
-           '음원차트','뮤직비디오','컴백','아이돌','데뷔',
-           'BTS','블랙핑크','뉴진스','아이브','세븐틴'],
-   normal:['영화','드라마','K팝','공연','전시','연예','방송',
-           '배우','가수','뮤지컬','웹툰','게임','e스포츠']},
+   strong:['오스카','칸영화제','백상예술대상','청룡영화상','OTT','넷플릭스','디즈니플러스','왓챠','음원차트','뮤직비디오','컴백','아이돌','데뷔','BTS','블랙핑크','뉴진스','아이브','세븐틴'],
+   normal:['영화','드라마','K팝','공연','전시','연예','방송','배우','가수','뮤지컬','웹툰','게임','e스포츠']},
 
   {id:'opinion', name:'사설·칼럼', icon:'✏️', on:false,
    nq:'사설 칼럼 오피니언',
-   strong:['사설','칼럼','오피니언','만물상','여적','횡설수설',
-           '천자문','데스크칼럼','다산칼럼','경제시평',
-           '특별기고','독자투고','논설위원','시론','기자수첩'],
+   strong:['사설','칼럼','오피니언','만물상','여적','횡설수설','천자문','데스크칼럼','다산칼럼','경제시평','특별기고','독자투고','논설위원','시론','기자수첩'],
    normal:['논평','기고','논단','에디터']},
 ];
 
-// 네이버 분야 미선택 시 기본 검색어 (다양하게)
 const NAVER_DEFAULT_QUERIES = [
   '속보 오늘 뉴스','정치 국회 대통령','물가 환율 경제지표',
   '사회 사건 사고','국제 외교 전쟁','스포츠 야구 축구',
@@ -635,7 +559,6 @@ let readItems=new Set(JSON.parse(localStorage.getItem('nbf7-read')||'[]'));
 let clusterMode=localStorage.getItem('nbf7-cluster')==='1';
 let scraps=JSON.parse(localStorage.getItem('nbf7-scraps')||'[]');
 
-// ── 테마 ──
 let isLight = localStorage.getItem('nbf7-theme')==='light';
 function applyTheme(){
   document.documentElement.classList.toggle('light', isLight);
@@ -650,7 +573,6 @@ function toggleTheme(){
   applyTheme();
 }
 
-// ── 맨 위로 가기 버튼 ──
 function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
 window.addEventListener('scroll',()=>{
   const btn=document.getElementById('scrollTopBtn');
@@ -664,7 +586,6 @@ let naverClientId=localStorage.getItem('naver-id')||'';
 let naverClientSecret=localStorage.getItem('naver-sec')||'';
 let naverEnabled=!!naverClientId;
 
-// ── 검색 ──
 function onSearch(){
   searchQuery=document.getElementById('searchInp').value.trim();
   const clearBtn=document.getElementById('searchClearBtn');
@@ -679,7 +600,6 @@ function clearSearch(){
   renderMain();
 }
 
-// ── 글자 크기 ──
 function changeFontSize(d){
   fontSize=Math.min(18,Math.max(11,fontSize+d));
   localStorage.setItem('nbf7-font',fontSize);
@@ -689,14 +609,12 @@ function applyFontSize(){
   document.querySelectorAll('.card-title,.daegu-card-title').forEach(el=>{el.style.fontSize=fontSize+'px';});
 }
 
-// ── 읽음 표시 ──
 function markRead(titleKey){
   readItems.add(titleKey);
   localStorage.setItem('nbf7-read',JSON.stringify([...readItems]));
 }
 function isRead(title){return readItems.has(title.slice(0,30));}
 
-// ─── 기본 설정 불러오기 ───
 function loadDefaults(){
   const saved=localStorage.getItem('nbf7-defaults');
   if(!saved)return;
@@ -795,10 +713,8 @@ function loadDefaultsManual(){
 
 loadDefaults();
 buildSrcPanel();buildTopicPanel();updateBadge();renderSummary();updateCounts();initNaverUI();checkSavedDefaults();
-// 클러스터 버튼 초기 상태
 if(clusterMode){const b=document.getElementById('clusterBtn');if(b){b.style.background='var(--blue)';b.style.color='#fff';}}
 
-// ─── 네이버 UI ───
 function initNaverUI(){
   const bar=document.getElementById('naverBar');
   const btn=document.getElementById('naverSetBtn');
@@ -842,7 +758,6 @@ function deleteNaverKey(){
   closeNaverModal();initNaverUI();renderSummary();toast('네이버 연동 해제됨');
 }
 
-// ─── 네이버 뉴스 검색 ───
 async function fetchNaverNews(query, display=30){
   const url=`https://openapi.naver.com/v1/search/news.json?query=${encodeURIComponent(query)}&display=${display}&sort=date`;
   try{
@@ -860,15 +775,11 @@ async function fetchNaverNews(query, display=30){
   }catch(e){console.warn('Naver:',e.message);return[];}
 }
 
-// 네이버 다중 쿼리 수집
 async function fetchAllNaverNews(){
   if(!naverClientId||!naverEnabled)return;
   const onTopics=TOPICS.filter(t=>t.on);
-  // 분야 선택 시: 각 분야별 쿼리 (균등 할당)
-  // 분야 미선택 시: 기본 12개 쿼리
   let tasks=[];
   if(onTopics.length){
-    // 분야별 균등: 100 / 분야수 = 분야당 가져올 기사수
     const perTopic=Math.max(15, Math.ceil(100/onTopics.length));
     tasks=onTopics.map(t=>({q:t.nq, display:perTopic, topicId:t.id}));
   } else {
@@ -880,7 +791,6 @@ async function fetchAllNaverNews(){
 
   await Promise.allSettled(tasks.map(async ({q,display,topicId})=>{
     const items=await fetchNaverNews(q,display);
-    // 토픽 검색 결과는 자동 태깅 (matchTopic 통과 보장)
     if(topicId){items.forEach(it=>{it.matchedTopic=topicId;});}
     allItems.push(...items);
     done++;
@@ -897,7 +807,6 @@ function setNaverProgress(pct,txt){
   document.getElementById('naverProgressTxt').textContent=txt;
 }
 
-// ─── 패널 ───
 function buildSrcPanel(){
   document.getElementById('srcBody').innerHTML=SRC_CATS.map(cat=>{
     const ss=SOURCES.filter(s=>s.cat===cat);
@@ -916,18 +825,7 @@ function togglePanel(id){document.getElementById(id+'Body').classList.toggle('op
 
 function toggleSrc(id){
   const s=SOURCES.find(x=>x.id===id); if(!s)return;
-  
-  if(!s.on){
-    // ① 꺼짐 상태에서 선택 → 일반 켜짐 (히든 해제, 정상 조회)
-    s.on=true;
-  } else if(spotlightSrc !== id){
-    // ② 일반 켜짐 상태에서 한 번 더 누름 → 스포트라이트 (최상위 노출)
-    spotlightSrc=id;
-  } else {
-    // ③ 최상위 노출 상태에서 한 번 더 누름 → 꺼짐 (선택 해제, 히든 처리)
-    s.on=false;
-    spotlightSrc=null;
-  }
+  if(!s.on){ s.on=true; } else if(spotlightSrc !== id){ spotlightSrc=id; } else { s.on=false; spotlightSrc=null; }
   updateSrcBtns(); updateCounts(); renderSummary();
   if(allItems.length) renderMain();
 }
@@ -953,18 +851,7 @@ function srcNone(){SOURCES.forEach(s=>{s.on=false;});spotlightSrc=null;updateSrc
 
 function toggleTopic(id){
   const t=TOPICS.find(x=>x.id===id); if(!t)return;
-  
-  if(!t.on){
-    // ① 꺼짐 상태에서 선택 → 일반 켜짐 (히든 해제, 정상 조회)
-    t.on=true;
-  } else if(spotlightTopic !== id){
-    // ② 일반 켜짐 상태에서 한 번 더 누름 → 스포트라이트 (최상위 노출)
-    spotlightTopic=id;
-  } else {
-    // ③ 최상위 노출 상태에서 한 번 더 누름 → 꺼짐 (선택 해제, 히든 처리)
-    t.on=false;
-    spotlightTopic=null;
-  }
+  if(!t.on){ t.on=true; } else if(spotlightTopic !== id){ spotlightTopic=id; } else { t.on=false; spotlightTopic=null; }
   updateTopicBtns(); updateCounts(); renderSummary();
   if(allItems.length) renderMain();
 }
@@ -1001,35 +888,29 @@ function renderSummary(){
   document.getElementById('filterSummary').innerHTML=chips.join('');
 }
 
-// ─── 정렬·개수 ───
 function setSort(mode,btn){sortMode=mode;document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');expandedMain.clear();if(allItems.length)renderMain();}
 function setCount(n,btn){newsCount=n;document.querySelectorAll('.cnt-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(allItems.length){renderMain();}toast(`📊 ${n}개로 변경`);}
+
 function getSorted(){
   const now=Date.now();
   let items=allItems.filter(item=>!item.pub||(now-new Date(item.pub).getTime())<=TIME_LIMIT);
   
-  // 기본 정렬
   if(sortMode==='latest') items.sort((a,b)=>new Date(b.pub)-new Date(a.pub));
   else if(sortMode==='oldest') items.sort((a,b)=>new Date(a.pub)-new Date(b.pub));
   else if(sortMode==='source') items.sort((a,b)=>a.source.localeCompare(b.source,'ko')||new Date(b.pub)-new Date(a.pub));
 
-  // 스포트라이트 로직 (언론사 + 분야 동시 지원)
   const spSrc = spotlightSrc ? SOURCES.find(s=>s.id===spotlightSrc) : null;
   const spTopic = spotlightTopic ? TOPICS.find(t=>t.id===spotlightTopic) : null;
-  const matchTxt = i=>(i.title+' '+(i.desc||'')).toLowerCase();
   
   const matchT = i=>{
-    if(!spTopic)return true;
-    if(i.matchedTopic===spTopic.id)return true;
-    const title=(i.title||'').toLowerCase();
-    const desc=(i.desc||'').toLowerCase();
-    return topicScore(spTopic,title,desc)>=2;
+    if(!spTopic) return true;
+    const res = matchTopic(i);
+    return res.match && res.topicName.includes(spTopic.name);
   };
   
   const matchS = i=>spSrc ? i.source===spSrc.name : true;
 
   if(spSrc && spTopic){
-    // 언론사+분야 동시: 둘 다 맞는 것 → 언론사만 → 분야만 → 나머지
     const both = items.filter(i=>matchS(i)&&matchT(i));
     const srcOnly = items.filter(i=>matchS(i)&&!matchT(i));
     const topicOnly = items.filter(i=>!matchS(i)&&matchT(i));
@@ -1046,29 +927,34 @@ function getSorted(){
   }
   return items;
 }
+
 function kwMatch(text, nosp, k){
   const kl=k.toLowerCase().replace(/\s+/g,' ');
   return text.includes(kl) || nosp.includes(kl.replace(/\s/g,''));
 }
+
+// 가중치 기반 합산 채점 엔진
 function topicScore(t, title, desc){
-  // strong 키워드: 제목 또는 본문 어디서든 1개 = 즉시 확정 (return 999)
   const titleN=title.replace(/\s+/g,' ');
   const descN=desc.replace(/\s+/g,' ');
   const titleNS=title.replace(/\s/g,'');
   const descNS=desc.replace(/\s/g,'');
-  for(const k of (t.strong||[])){
-    if(kwMatch(titleN,titleNS,k)||kwMatch(descN,descNS,k)) return 999;
-  }
-  // normal 키워드: 제목=2점, 본문=1점, 합산 2점 이상이면 확정
+  
   let score=0;
-  for(const k of (t.normal||t.kw||[])){
-    if(kwMatch(titleN,titleNS,k)) score+=2;
-    else if(kwMatch(descN,descNS,k)) score+=1;
-    if(score>=2) return score;
+  
+  for(const k of (t.strong||[])){
+    if(kwMatch(titleN,titleNS,k)) score += 5; // Strong 제목 5점
+    else if(kwMatch(descN,descNS,k)) score += 3; // Strong 본문 3점
   }
+  for(const k of (t.normal||t.kw||[])){
+    if(kwMatch(titleN,titleNS,k)) score += 2; // Normal 제목 2점
+    else if(kwMatch(descN,descNS,k)) score += 1; // Normal 본문 1점
+  }
+  
   return score;
 }
 
+// 분야별 합산 점수 및 복합 카테고리 판별 로직
 function matchTopic(item){
   const onTopics=TOPICS.filter(t=>t.on);
   if(!onTopics.length)return{match:true,topicName:'',topicIcon:''};
@@ -1076,31 +962,45 @@ function matchTopic(item){
   const title=(item.title||'').toLowerCase();
   const desc=(item.desc||'').toLowerCase();
   
-  let bestTopic = null;
-  let maxScore = -1;
+  let scoredTopics = [];
 
   for(const t of onTopics){
-    // ① 네이버 검색 자동 태깅은 그대로 우선 처리
-    if(item.matchedTopic===t.id){
-      return {match:true, topicName:t.name, topicIcon:t.icon};
+    let score = topicScore(t, title, desc);
+    
+    // 네이버 검색 가산점 3점 부여 (절대 맹신 방지)
+    if(item.matchedTopic === t.id) {
+      score += 3;
     }
     
-    // ② 키워드 점수를 계산
-    const score = topicScore(t, title, desc);
-    
-    // 2점 이상이고 이전 매칭 분야보다 점수가 더 높으면 갱신 (가장 점수 높은 분야로)
-    if(score >= 2 && score > maxScore){
-      maxScore = score;
-      bestTopic = t;
+    // 최소 기준 2점 이상일 때만 후보군에 등록
+    if(score >= 2) {
+      scoredTopics.push({ topic: t, score: score });
     }
   }
 
-  // 매칭된 분야가 있으면 해당 분야로 리턴
-  if(bestTopic){
-    return {match:true, topicName:bestTopic.name, topicIcon:bestTopic.icon};
+  // 내림차순 정렬 (최고 득점순)
+  scoredTopics.sort((a,b) => b.score - a.score);
+
+  if(scoredTopics.length > 0){
+    const best = scoredTopics[0];
+    
+    // 1위와 2위의 점수차가 2점 이하이면서, 2위도 4점 이상인 경우 '복합 카테고리'로 렌더링
+    if(scoredTopics.length > 1){
+      const second = scoredTopics[1];
+      if((best.score - second.score) <= 2 && second.score >= 4){
+        return {
+          match: true,
+          topicName: `${best.topic.name}·${second.topic.name}`,
+          topicIcon: best.topic.icon
+        };
+      }
+    }
+    // 단일 카테고리 반환
+    return {match:true, topicName: best.topic.name, topicIcon: best.topic.icon};
   }
   
-  return {match:false}; // 아무 조건도 못 넘으면 필터링
+  // 모든 점수가 기준 미달이면 필터 아웃
+  return {match:false}; 
 }
 
 function getFiltered(){
@@ -1113,9 +1013,7 @@ function getFiltered(){
 }
 function dedup(items){const seen=new Set();return items.filter(item=>{const k=item.title.slice(0,20);if(seen.has(k))return false;seen.add(k);return true;});}
 
-// ─── RSS ───
 async function fetchRSS(src){
-  // rss가 배열이면 순서대로 시도, 아니면 단일 URL 시도
   const urls = [src.rss, src.rss2].filter(Boolean);
   for(const rss of urls){
     const result = await tryFetchRSS(rss, src);
@@ -1141,8 +1039,6 @@ function parseXML(xml,src){
 }
 function mkItem(title,url,pub,desc,src,forceUtc){
   const t=(title||'').replace(/ - [^-]+$/,'').trim();
-  // rss2json은 UTC시간을 timezone 표시 없이 반환 → JS가 KST로 오해 → 9시간 오차
-  // ' UTC' 또는 '+0000' 붙여서 강제로 UTC 해석
   let fixedPub=pub||'';
   if(forceUtc && fixedPub && !fixedPub.match(/[+-]\d{4}$|Z$|UTC$/i)){
     fixedPub=fixedPub+' UTC';
@@ -1151,11 +1047,9 @@ function mkItem(title,url,pub,desc,src,forceUtc){
 }
 function strip(h){const d=document.createElement('div');d.innerHTML=h;return(d.textContent||d.innerText||'').replace(/\s+/g,' ').trim();}
 
-// ─── FETCH ALL ───
 async function fetchAll(){
   const selected=SOURCES.filter(s=>s.on);
   if(!selected.length){toast('⚠️ 언론사를 선택해주세요');return;}
-  // ── 완전 초기화 ──
   loadingMain=true;
   allItems=[];
   expandedMain.clear();
@@ -1165,13 +1059,11 @@ async function fetchAll(){
   btn.disabled=true;btn.innerHTML='<span class="sp"></span>';
   renderMain();
 
-  // ── 1단계: 네이버 우선 수집 (네이버 키 있을 때) ──
   if(naverClientId&&naverEnabled){
     setStatus('⏳ N 네이버 수집 중...');
     await fetchAllNaverNews();
   }
 
-  // ── 2단계: RSS 병렬 수집 ──
   setStatus('⏳ RSS 수집 중...');
   await Promise.allSettled(
     selected.map(async src=>{
@@ -1181,9 +1073,7 @@ async function fetchAll(){
     })
   );
 
-  // ── 정리: 중복 제거 + 최신순 정렬 ──
   allItems=dedup(allItems);
-  // 기본 최신순 정렬
   allItems.sort((a,b)=>new Date(b.pub||0)-new Date(a.pub||0));
 
   loadingMain=false;
@@ -1200,8 +1090,6 @@ async function fetchAll(){
   renderMain();
 }
 
-
-// ─── RENDER ───
 function renderMain(){
   const el=document.getElementById('newsGrid');
   const ri=document.getElementById('resultInfo');
@@ -1216,7 +1104,6 @@ function renderMain(){
     ${naverCnt?`<span style="color:#03c75a;font-size:10px">· N ${naverCnt}건</span>`:''}
     ${onTopics.length?`<span style="color:#9066cc;font-size:10px">· ${onTopics.map(t=>t.name).join('·')}</span>`:''}`;
   if(!filtered.length){el.innerHTML=`<div class="empty-box"><div class="empty-icon">🔍</div><div class="empty-text">48시간 이내 해당 분야 기사가 없습니다</div></div>`;return;}
-  // 검색 카운트
   const cntEl=document.getElementById('searchCnt');
   if(cntEl&&searchQuery){cntEl.style.display='';cntEl.textContent=filtered.length+'건';}
   else if(cntEl){cntEl.style.display='none';}
@@ -1231,15 +1118,11 @@ function renderMain(){
       ${g.items.map(({item,i})=>cardHTML(item,i)).join('')}`).join('');
   }else{el.innerHTML=shown.map((item,i)=>cardHTML(item,i)).join('');}
   
-  // 폰트 크기 적용
   setTimeout(applyFontSize,50);
-  
-  // 💡 하단 표시 건수를 실제 필터링된 기사 개수와 동기화
   document.getElementById('statusTxt').textContent = `✅ ${filtered.length}건`;
 }
 
 function cardKey(item){
-  // 제목 기반 고유 키 (인덱스 대신 사용)
   return item.title.replace(/[^\uAC00-\uD7A3a-zA-Z0-9]/g,'').slice(0,20);
 }
 function cardHTML(item,i){
@@ -1247,7 +1130,7 @@ function cardHTML(item,i){
   const exp=expandedMain.has(key);
   const sc=isSc(item);
   const hasUrl=item.url&&item.url.startsWith('http');
-  const tp=matchTopic(item);
+  const tp=item._topic; // _topic은 getFiltered에서 매핑된 최종 카테고리 속성입니다.
   const rd=isRead(item.title);
   const titleHtml=searchQuery?hlText(esc(item.title),searchQuery):esc(item.title);
   const readKey=item.title.slice(0,30).replace(/'/g,'').replace(/\\/g,'');
@@ -1276,7 +1159,7 @@ function cardHTML(item,i){
     </div>
   </div>`;
 }
-// ── 이슈 묶음 ──
+
 function toggleCluster(){
   clusterMode=!clusterMode;
   localStorage.setItem('nbf7-cluster',clusterMode?'1':'0');
@@ -1286,7 +1169,6 @@ function toggleCluster(){
   toast(clusterMode?'🗂 비슷한 기사 묶음 켜짐':'🗂 묶음 꺼짐');
 }
 function clusterItems(items){
-  // 제목 앞 12글자 기준으로 유사 기사 그룹핑
   const groups=[];const used=new Set();
   items.forEach((item,i)=>{
     if(used.has(i))return;
@@ -1295,7 +1177,6 @@ function clusterItems(items){
     items.forEach((b,j)=>{
       if(j===i||used.has(j))return;
       const bkey=b.title.replace(/[^가-힣a-zA-Z0-9]/g,'').slice(0,10);
-      // 공통 키워드 3글자 이상 공유하면 같은 이슈로 묶음
       const common=key.split('').filter((c,ci)=>bkey[ci]===c).join('');
       if(common.length>=4){similar.push({item:b,i:j});used.add(j);}
     });
@@ -1338,21 +1219,13 @@ function unmarkRead(key){
 function toggleMain(key){expandedMain.has(key)?expandedMain.delete(key):expandedMain.add(key);renderMain();}
 
 function skels(n){return Array(n).fill(0).map(()=>`<div class="skel-card"><div class="sk sk1"></div><div class="sk sk2"></div></div>`).join('');}
-function skelsDg(n){return Array(n).fill(0).map(()=>`<div class="skel-card" style="background:#0d2010;border-color:#1a4020"><div class="sk sk1" style="background:#1a4020"></div><div class="sk sk2" style="background:#0f2e15"></div></div>`).join('');}
-
-// ─── 스크랩 ───
 function isSc(item){return scraps.some(s=>s.title===item.title);}
 function getMainItem(i){return getFiltered()[i];}
-function doScrap(i){
-  const item=getMainItem(i);if(!item)return;
-  if(!isSc(item)){scraps.unshift({...item,memo:'',savedAt:new Date().toISOString()});if(scraps.length>100)scraps=scraps.slice(0,100);saveScraps();updateBadge();renderMain();}
-  shareItem(item);toast('📌 스크랩 저장!');
-}
+
 function doScrapMemo(i){
   const item=getMainItem(i);if(!item)return;
   if(isSc(item)){shareItem(item);toast('📌 이미 저장됨 — 공유');return;}
-  // 메모 입력 영역 토글
-  const cardEl=document.getElementById('mc-'+i);
+  const cardEl=document.getElementById('mc-'+cardKey(item));
   if(!cardEl)return;
   const existMemo=cardEl.querySelector('.memo-area');
   if(existMemo){existMemo.focus();return;}
@@ -1427,7 +1300,6 @@ function relTime(p){
     if(h<24)rel=h+'시간 전';
     else rel=Math.floor(h/24)+'일 전';
   }
-  // 실제 게시 시각 함께 표시
   const mm=String(d.getMonth()+1).padStart(2,'0');
   const dd=String(d.getDate()).padStart(2,'0');
   const hh=String(d.getHours()).padStart(2,'0');
@@ -1436,203 +1308,5 @@ function relTime(p){
 }
 let tt;function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),2600);}
 </script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-    // 1. 13개 뉴스 카테고리 체계 정의 (사용자 UI 기준 매핑)
-    const taxonomies = {
-        'C01': { id: 'C01', name: '증시', label: 'Stock' },
-        'C02': { id: 'C02', name: '부동산', label: 'RealEstate' },
-        'C03': { id: 'C03', name: '금융', label: 'Finance' },
-        'C04': { id: 'C04', name: '경제', label: 'Economy' },
-        'C05': { id: 'C05', name: '기업', label: 'Enterprise' },
-        'C06': { id: 'C06', name: '산업', label: 'Industry' },
-        'C07': { id: 'C07', name: '테크', label: 'Tech' },
-        'C08': { id: 'C08', name: '사회', label: 'Society' },
-        'C09': { id: 'C09', name: '정치', label: 'Politics' },
-        'C10': { id: 'C10', name: '국제', label: 'International' },
-        'C11': { id: 'C11', name: '스포츠', label: 'Sports' },
-        'C12': { id: 'C12', name: '문화·연예', label: 'Culture/Entertainment' },
-        'C13': { id: 'C13', name: '사설·칼럼', label: 'Editorial' }
-    };
-
-    // 상태 관리 변수
-    let activeCategory = 'all'; // 기본값: 전체 보기
-    let currentSortOrder = 'newest'; // 기본값: 최신순 정렬
-
-    /**
-     * 2. 의미론적 오분류 방지 모듈 (Semantic Disambiguation Heuristics)
-     * 인공지능 백엔드에서 '경제' 계열로 잘못 분류된 스포츠 기사를 
-     * 클라이언트 단에서 교정하는 방어 로직입니다.
-     */
-    const sportsKeywords = ['프로야구', '축구', '야구', '농구', '상무', 'K리그', '골프', '감독', '선수', '경기 만에', '무승 탈출', '메이저리그', '월드컵', '올림픽'];
-    const economyKeywords = ['주식', '환율', '증시', '금리', '수출', '부동산', '코스피', '물가상승', '영업이익'];
-
-    function correctMisclassification(articleTitle, currentCategory) {
-        let titleLower = articleTitle.toLowerCase();
-        
-        // 경제, 증시, 기업 등 경제 카테고리군(C01~C06)으로 분류된 경우에만 검사
-        const economyCategoryIDs = ['C01', 'C02', 'C03', 'C04', 'C05', 'C06'];
-        
-        if (economyCategoryIDs.includes(currentCategory)) {
-            // 제목에 스포츠 핵심 개체명(NER)이 포함되어 있는지 확인
-            let isSports = sportsKeywords.some(keyword => titleLower.includes(keyword.toLowerCase()));
-            
-            // 스포츠 개체명이 존재한다면, '경제' 관련 단어(흥행, 돌파, 탈출 등)가 있더라도 
-            // C11(스포츠)로 강제 교정하여 반환
-            if (isSports) {
-                console.warn(`[분류 교정됨] "${articleTitle}" -> 경제계열에서 '스포츠(C11)'로 수정되었습니다.`);
-                return 'C11'; 
-            }
-        }
-        return currentCategory; // 오류가 없으면 원래 카테고리 유지
-    }
-
-    /**
-     * 3. 필터 버튼 동적 렌더링 (UI 갱신)
-     * 기존 CSS의.filter-wrap 영역에 13개의 카테고리 버튼을 생성합니다.
-     */
-    function renderFilterButtons() {
-        const filterWrap = document.querySelector('.filter-wrap');
-        if (!filterWrap) return;
-
-        filterWrap.innerHTML = ''; // 기존 하드코딩된 필터 초기화
-
-        // 전체(All) 버튼 생성
-        const allBtn = document.createElement('button');
-        allBtn.className = 'filter-btn active'; // 기본 활성화 상태
-        allBtn.dataset.target = 'all';
-        allBtn.textContent = '전체 보기';
-        allBtn.addEventListener('click', handleFilterClick);
-        filterWrap.appendChild(allBtn);
-
-        // 13개 카테고리 버튼 순차 생성
-        Object.values(taxonomies).forEach(category => {
-            const btn = document.createElement('button');
-            btn.className = 'filter-btn';
-            btn.dataset.target = category.id;
-            btn.textContent = category.name;
-            btn.addEventListener('click', handleFilterClick);
-            filterWrap.appendChild(btn);
-        });
-    }
-
-    /**
-     * 4. 카테고리 클릭 이벤트 핸들러
-     */
-    function handleFilterClick(event) {
-        // 모든 버튼의 active 클래스 제거 후, 클릭된 버튼에만 추가
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-        
-        activeCategory = event.target.dataset.target;
-        updateNewsDisplay(); // 뉴스 카드 화면 갱신 함수 호출
-    }
-
-    /**
-     * 5. 정렬 버튼(최신순, 오래된순) 이벤트 바인딩
-     */
-    function bindSortingEvents() {
-        //.sort-btn 클래스를 가진 모든 버튼을 선택
-        const sortBtns = document.querySelectorAll('.sort-btn');
-        sortBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                sortBtns.forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                
-                // data-sort 속성이 없으면 텍스트 내용으로 유추
-                if(e.target.textContent.includes('최신순')) currentSortOrder = 'newest';
-                else if(e.target.textContent.includes('오래된순')) currentSortOrder = 'oldest';
-                
-                updateNewsDisplay();
-            });
-        });
-    }
-
-    /**
-     * 6. 시간 문자열 파싱 유틸리티 (Sorting을 위한 수학적 변환)
-     * "3시간 전", "10분 전", "04.25" 등의 문자열을 분(minute) 단위 정수로 변환
-     */
-    function parseTimeToMinutes(timeString) {
-        if (!timeString) return Number.MAX_SAFE_INTEGER;
-        if (timeString.includes('분 전')) return parseInt(timeString, 10) |
-
-| 0;
-        if (timeString.includes('시간 전')) return (parseInt(timeString, 10) |
-
-| 0) * 60;
-        if (timeString.includes('일 전')) return (parseInt(timeString, 10) |
-
-| 0) * 1440;
-        return Number.MAX_SAFE_INTEGER; // 파싱 실패 시 가장 오래된 항목으로 취급
-    }
-
-    /**
-     * 7. 뉴스 디스플레이 업데이트 코어 엔진
-     * 필터링, 교정, 정렬을 거쳐 DOM을 갱신합니다.
-     */
-    function updateNewsDisplay() {
-        const cards = document.querySelectorAll('.news-card');
-        const container = cards?.parentNode; // 카드를 담고 있는 부모 컨테이너
-        if (!container) return;
-
-        let cardsArray = Array.from(cards);
-
-        // [Phase A: 데이터 정제 및 가시성 필터링]
-        cardsArray.forEach(card => {
-            // 기사 제목 요소 파악 (클래스명이.card-title이라고 가정, 없을 시 텍스트 추출)
-            const titleElement = card.querySelector('.card-title, h3, h4');
-            const articleTitle = titleElement? titleElement.textContent : card.textContent;
-            
-            // 백엔드에서 전달된 원본 카테고리 데이터 (데이터 속성이 없다면 임의로 C04 배정)
-            let rawCategory = card.dataset.category |
-
-| 'C04'; 
-            
-            // 인공지능 오분류 교정 함수 실행
-            let finalCategory = correctMisclassification(articleTitle, rawCategory);
-            
-            // 교정된 카테고리를 다시 DOM에 저장 (추후 재처리 방지)
-            card.dataset.category = finalCategory;
-
-            // 현재 선택된 필터와 비교하여 화면 표시 여부 결정
-            if (activeCategory === 'all' |
-
-| finalCategory === activeCategory) {
-                card.style.display = 'flex'; // 혹은 'block' (CSS 설계에 맞춤)
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        //
-        cardsArray.sort((a, b) => {
-            const ageTextA = a.querySelector('.card-age')?.textContent |
-
-| "";
-            const ageTextB = b.querySelector('.card-age')?.textContent |
-
-| "";
-            
-            const timeA = parseTimeToMinutes(ageTextA);
-            const timeB = parseTimeToMinutes(ageTextB);
-
-            return currentSortOrder === 'newest'? timeA - timeB : timeB - timeA;
-        });
-
-        //
-        // 정렬된 배열을 순회하며 부모 컨테이너의 맨 끝에 다시 추가 (자동으로 순서 정렬됨)
-        cardsArray.forEach(card => container.appendChild(card));
-    }
-
-    // 8. 모듈 초기화 실행
-    renderFilterButtons();
-    bindSortingEvents();
-    // DOM 로드 후 최초 1회 렌더링을 통해 오분류된 기사를 즉시 바로잡음
-    updateNewsDisplay(); 
-
-});
-</script>
-
 </body>
 </html>
