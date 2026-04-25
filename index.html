@@ -906,54 +906,40 @@ function buildTopicPanel(){
 function togglePanel(id){document.getElementById(id+'Body').classList.toggle('open');document.getElementById(id+'Arrow').classList.toggle('open');}
 function toggleSrc(id){
   const s=SOURCES.find(x=>x.id===id); if(!s)return;
+  
   if(!s.on){
-    // ① 꺼짐 → 켜짐 + 스포트라이트
-    s.on=true; spotlightSrc=id;
-  } else if(spotlightSrc===id){
-    // ② 스포트라이트 상태 → 스포트라이트만 해제 (ON 유지)
-    spotlightSrc=null;
+    // ① 꺼짐 상태에서 선택 → 일반 켜짐 (히든 해제, 정상 조회)
+    s.on=true;
+  } else if(spotlightSrc !== id){
+    // ② 일반 켜짐 상태에서 한 번 더 누름 → 스포트라이트 (최상위 노출)
+    spotlightSrc=id;
   } else {
-    // ③ ON 상태(스포트라이트 없음) → 선택 취소
+    // ③ 최상위 노출 상태에서 한 번 더 누름 → 꺼짐 (선택 해제, 히든 처리)
     s.on=false;
-    if(spotlightSrc===id) spotlightSrc=null;
+    spotlightSrc=null;
   }
   updateSrcBtns(); updateCounts(); renderSummary();
   if(allItems.length) renderMain();
 }
-function updateSrcBtns(){
-  SOURCES.forEach(s=>{
-    const el=document.getElementById('sb-'+s.id); if(!el)return;
-    el.classList.toggle('on', s.on);
-    el.classList.toggle('spotlight', s.on && spotlightSrc===s.id);
-  });
-}
-function updateTopicBtns(){
-  TOPICS.forEach(t=>{
-    const el=document.getElementById('tb-'+t.id); if(!el)return;
-    el.classList.toggle('on', t.on);
-    el.classList.toggle('spotlight', t.on && spotlightTopic===t.id);
-  });
-}
-function srcAll(){SOURCES.forEach(s=>{s.on=true;});spotlightSrc=null;updateSrcBtns();updateCounts();renderSummary();if(allItems.length)renderMain();}
-function srcNone(){SOURCES.forEach(s=>{s.on=false;});spotlightSrc=null;updateSrcBtns();updateCounts();renderSummary();if(allItems.length)renderMain();}
+
 function toggleTopic(id){
   const t=TOPICS.find(x=>x.id===id); if(!t)return;
-  // 3단계 사이클:
-  // 꺼짐 → 켜짐+스포트라이트(우선노출) → 켜짐(스포트라이트해제) → 꺼짐
+  
   if(!t.on){
-    // ① 꺼짐 → 켜짐 + 스포트라이트
+    // ① 꺼짐 상태에서 선택 → 일반 켜짐 (히든 해제, 정상 조회)
     t.on=true;
+  } else if(spotlightTopic !== id){
+    // ② 일반 켜짐 상태에서 한 번 더 누름 → 스포트라이트 (최상위 노출)
     spotlightTopic=id;
-  } else if(spotlightTopic===id){
-    // ② 스포트라이트 → 스포트라이트 해제 (ON 유지)
-    spotlightTopic=null;
   } else {
-    // ③ ON(스포트라이트 없음) → 꺼짐
+    // ③ 최상위 노출 상태에서 한 번 더 누름 → 꺼짐 (선택 해제, 히든 처리)
     t.on=false;
+    spotlightTopic=null;
   }
   updateTopicBtns(); updateCounts(); renderSummary();
   if(allItems.length) renderMain();
 }
+
 function topicAll(){TOPICS.forEach(t=>{t.on=true;});spotlightTopic=null;updateTopicBtns();updateCounts();renderSummary();if(allItems.length)renderMain();}
 function topicNone(){TOPICS.forEach(t=>{t.on=false;});spotlightTopic=null;updateTopicBtns();updateCounts();renderSummary();if(allItems.length)renderMain();}
 function updateCounts(){
