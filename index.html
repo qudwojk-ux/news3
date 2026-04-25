@@ -485,6 +485,12 @@ const SOURCES=[
   {id:'hankyung', name:'한국경제', cat:'경제지',     color:'#c2410c', on:true,  rss:'https://www.hankyung.com/feed/all-news'},
   {id:'mk',       name:'매일경제', cat:'경제지',     color:'#1d4ed8', on:true,  rss:'https://www.mk.co.kr/rss/30000001/'},
   {id:'edaily',   name:'이데일리', cat:'경제지',     color:'#0369a1', on:true,  rss:'https://www.edaily.co.kr/rss/rss.xml'},
+  {id:'etnews',   name:'전자신문',   cat:'IT·테크', color:'#0ea5e9', on:true, rss:'https://rss.etnews.com/Section901.xml', rss2:'https://news.google.com/rss/search?q=전자신문&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'zdnet',    name:'지디넷코리아', cat:'IT·테크', color:'#2563eb', on:true, rss:'https://feeds.feedburner.com/zdkorea', rss2:'https://news.google.com/rss/search?q=지디넷코리아&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'bloter',   name:'블로터',     cat:'IT·테크', color:'#ef4444', on:true, rss:'https://www.bloter.net/rss/allArticle.xml', rss2:'https://news.google.com/rss/search?q=블로터&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'itchosun', name:'아이티조선', cat:'IT·테크', color:'#1e40af', on:true, rss:'https://it.chosun.com/rss/news.xml', rss2:'https://news.google.com/rss/search?q=아이티조선&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'ddaily',   name:'디지털데일리', cat:'IT·테크', color:'#f59e0b', on:true, rss:'https://www.ddaily.co.kr/rss/allArticle.xml', rss2:'https://news.google.com/rss/search?q=디지털데일리&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'techm',    name:'테크M',      cat:'IT·테크', color:'#8b5cf6', on:true, rss:'https://www.techm.kr/rss/allArticle.xml', rss2:'https://news.google.com/rss/search?q=테크M&hl=ko&gl=KR&ceid=KR:ko'},
   {id:'imaeil',   name:'매일신문', cat:'대구·경북',  color:'#15803d', on:true,  rss:'https://news.google.com/rss/search?q=매일신문+대구&hl=ko&gl=KR&ceid=KR:ko', rss2:'https://www.imaeil.com/rss/allNews'},
   {id:'yeongnam', name:'영남일보', cat:'대구·경북',  color:'#7c2d12', on:true,  rss:'https://news.google.com/rss/search?q=영남일보+경북&hl=ko&gl=KR&ceid=KR:ko', rss2:'https://www.yeongnam.com/rss/allArticle.xml'},
 ];
@@ -492,7 +498,6 @@ const SOURCES=[
 const TOPICS=[
   {id:'stock', name:'증시', icon:'📊', on:false,
    nq:'증시 코스피 코스닥 주가',
-   src:['한국경제','매일경제','이데일리'],
    strong:['코스피','코스닥','주가','증시','코스피200','코스닥150',
            '나스닥','다우존스','S&P500','공모주','IPO','상한가','하한가',
            '사이드카','서킷브레이커','주식시장','증권시장',
@@ -508,7 +513,6 @@ const TOPICS=[
 
   {id:'finance', name:'금융', icon:'💰', on:false,
    nq:'금융 은행 대출 보험',
-   src:['한국경제','매일경제','이데일리'],
    strong:['금융위원회','금감원','금융감독원','카카오뱅크','케이뱅크',
            '토스뱅크','새마을금고','저축은행','신협','핀테크',
            '가상자산','비트코인','이더리움','블록체인','CBDC',
@@ -518,7 +522,6 @@ const TOPICS=[
 
   {id:'economy', name:'경제', icon:'📈', on:false,
    nq:'경제 물가 환율 GDP',
-   src:['한국경제','매일경제','이데일리'],
    strong:['기준금리','한국은행','기재부','경상수지','소비자물가','생산자물가',
            'GDP','무역수지','외환보유액','경기침체','경기회복',
            'OECD','WTO통계','양적완화','재정적자','국가채무'],
@@ -613,7 +616,7 @@ const NAVER_DEFAULT_QUERIES = [
   'AI 인공지능 테크','부동산 아파트 전세','코스피 코스닥 증시'
 ];
 
-const SRC_CATS=['통신·방송','종합일간지','경제지','대구·경북'];
+const SRC_CATS=['통신·방송','종합일간지','경제지','IT·테크','대구·경북'];
 const TIME_LIMIT=48*60*60*1000;
 
 let allItems=[],expandedMain=new Set();
@@ -1008,14 +1011,15 @@ function getSorted(){
   const spSrc = spotlightSrc ? SOURCES.find(s=>s.id===spotlightSrc) : null;
   const spTopic = spotlightTopic ? TOPICS.find(t=>t.id===spotlightTopic) : null;
   const matchTxt = i=>(i.title+' '+(i.desc||'')).toLowerCase();
+  
   const matchT = i=>{
     if(!spTopic)return true;
-    if(spTopic.src&&spTopic.src.includes(i.source))return true;
     if(i.matchedTopic===spTopic.id)return true;
     const title=(i.title||'').toLowerCase();
     const desc=(i.desc||'').toLowerCase();
     return topicScore(spTopic,title,desc)>=2;
   };
+  
   const matchS = i=>spSrc ? i.source===spSrc.name : true;
 
   if(spSrc && spTopic){
@@ -1058,24 +1062,41 @@ function topicScore(t, title, desc){
   }
   return score;
 }
+
 function matchTopic(item){
   const onTopics=TOPICS.filter(t=>t.on);
   if(!onTopics.length)return{match:true,topicName:'',topicIcon:''};
+  
   const title=(item.title||'').toLowerCase();
   const desc=(item.desc||'').toLowerCase();
+  
+  let bestTopic = null;
+  let maxScore = -1;
+
   for(const t of onTopics){
-    // ① 네이버 검색 자동 태깅
-    if(item.matchedTopic===t.id)
-      return{match:true,topicName:t.name,topicIcon:t.icon};
-    // ② 언론사 src 태깅
-    if(t.src&&t.src.includes(item.source))
-      return{match:true,topicName:t.name,topicIcon:t.icon};
-    // ③ 가중치 매칭: strong 1개 or normal 2점 이상
-    if(topicScore(t,title,desc)>=2)
-      return{match:true,topicName:t.name,topicIcon:t.icon};
+    // ① 네이버 검색 자동 태깅은 그대로 우선 처리
+    if(item.matchedTopic===t.id){
+      return {match:true, topicName:t.name, topicIcon:t.icon};
+    }
+    
+    // ② 키워드 점수를 계산
+    const score = topicScore(t, title, desc);
+    
+    // 2점 이상이고 이전 매칭 분야보다 점수가 더 높으면 갱신 (가장 점수 높은 분야로)
+    if(score >= 2 && score > maxScore){
+      maxScore = score;
+      bestTopic = t;
+    }
   }
-  return{match:false};
+
+  // 매칭된 분야가 있으면 해당 분야로 리턴
+  if(bestTopic){
+    return {match:true, topicName:bestTopic.name, topicIcon:bestTopic.icon};
+  }
+  
+  return {match:false}; // 아무 조건도 못 넘으면 필터링
 }
+
 function getFiltered(){
   let items=getSorted().map((item,i)=>({...item,_i:i,_topic:matchTopic(item)})).filter(item=>item._topic.match);
   if(searchQuery){
@@ -1203,8 +1224,12 @@ function renderMain(){
       <div class="src-group-hdr"><div class="src-group-dot" style="background:${g.color}"></div><span class="src-group-name">${n}</span><span class="src-group-cnt">${g.items.length}건</span></div>
       ${g.items.map(({item,i})=>cardHTML(item,i)).join('')}`).join('');
   }else{el.innerHTML=shown.map((item,i)=>cardHTML(item,i)).join('');}
+  
   // 폰트 크기 적용
   setTimeout(applyFontSize,50);
+  
+  // 💡 하단 표시 건수를 실제 필터링된 기사 개수와 동기화
+  document.getElementById('statusTxt').textContent = `✅ ${filtered.length}건`;
 }
 
 function cardKey(item){
