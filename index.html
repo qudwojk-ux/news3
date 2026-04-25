@@ -449,19 +449,19 @@ main{padding:12px;display:flex;flex-direction:column;gap:14px;padding-bottom:40p
 
 <script>
 const SOURCES=[
-  {id:'yna',      name:'연합뉴스', cat:'통신·방송', color:'#2563eb', on:true,  rss:'https://www.yna.co.kr/rss/news.xml'},
-  {id:'kbs',      name:'KBS',      cat:'통신·방송', color:'#dc2626', on:true,  rss:'https://news.kbs.co.kr/rss/rss.xml'},
-  {id:'mbc',      name:'MBC',      cat:'통신·방송', color:'#16a34a', on:true,  rss:'https://imnews.imbc.com/rss/news/news_00.xml'},
-  {id:'sbs',      name:'SBS',      cat:'통신·방송', color:'#7c3aed', on:true,  rss:'https://news.sbs.co.kr/news/SRSSFeeds.do?plink=RSSREADER'},
-  {id:'ytn',      name:'YTN',      cat:'통신·방송', color:'#b45309', on:true,  rss:'https://www.ytn.co.kr/rss/rss_news.php'},
-  {id:'chosun',   name:'조선일보', cat:'종합일간지', color:'#1e40af', on:true,  rss:'https://www.chosun.com/arc/outboundfeeds/rss/?outputType=xml'},
-  {id:'joongang', name:'중앙일보', cat:'종합일간지', color:'#0f766e', on:true,  rss:'https://rss.joins.com/joins_news_list.xml'},
-  {id:'donga',    name:'동아일보', cat:'종합일간지', color:'#9f1239', on:true,  rss:'https://rss.donga.com/total.xml'},
-  {id:'hani',     name:'한겨레',   cat:'종합일간지', color:'#166534', on:true,  rss:'https://www.hani.co.kr/rss/'},
-  {id:'khan',     name:'경향신문', cat:'종합일간지', color:'#1e3a8a', on:true,  rss:'https://www.khan.co.kr/rss/rssdata/total_news.xml'},
-  {id:'hankyung', name:'한국경제', cat:'경제지',     color:'#c2410c', on:true,  rss:'https://www.hankyung.com/feed/all-news'},
-  {id:'mk',       name:'매일경제', cat:'경제지',     color:'#1d4ed8', on:true,  rss:'https://www.mk.co.kr/rss/30000001/'},
-  {id:'edaily',   name:'이데일리', cat:'경제지',     color:'#0369a1', on:true,  rss:'https://www.edaily.co.kr/rss/rss.xml'},
+  {id:'yna',      name:'연합뉴스', cat:'통신·방송', color:'#2563eb', on:true,  rss:'https://www.yna.co.kr/rss/news.xml', rss2:'https://news.google.com/rss/search?q=연합뉴스&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'kbs',      name:'KBS',      cat:'통신·방송', color:'#dc2626', on:true,  rss:'https://news.kbs.co.kr/rss/rss.xml', rss2:'https://news.google.com/rss/search?q=KBS&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'mbc',      name:'MBC',      cat:'통신·방송', color:'#16a34a', on:true,  rss:'https://imnews.imbc.com/rss/news/news_00.xml', rss2:'https://news.google.com/rss/search?q=MBC&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'sbs',      name:'SBS',      cat:'통신·방송', color:'#7c3aed', on:true,  rss:'https://news.sbs.co.kr/news/SRSSFeeds.do?plink=RSSREADER', rss2:'https://news.google.com/rss/search?q=SBS&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'ytn',      name:'YTN',      cat:'통신·방송', color:'#b45309', on:true,  rss:'https://www.ytn.co.kr/rss/rss_news.php', rss2:'https://news.google.com/rss/search?q=YTN&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'chosun',   name:'조선일보', cat:'종합일간지', color:'#1e40af', on:true,  rss:'https://www.chosun.com/arc/outboundfeeds/rss/?outputType=xml', rss2:'https://news.google.com/rss/search?q=조선일보&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'joongang', name:'중앙일보', cat:'종합일간지', color:'#0f766e', on:true,  rss:'https://rss.joins.com/joins_news_list.xml', rss2:'https://news.google.com/rss/search?q=중앙일보&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'donga',    name:'동아일보', cat:'종합일간지', color:'#9f1239', on:true,  rss:'https://rss.donga.com/total.xml', rss2:'https://news.google.com/rss/search?q=동아일보&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'hani',     name:'한겨레',   cat:'종합일간지', color:'#166534', on:true,  rss:'https://www.hani.co.kr/rss/', rss2:'https://news.google.com/rss/search?q=한겨레&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'khan',     name:'경향신문', cat:'종합일간지', color:'#1e3a8a', on:true,  rss:'https://www.khan.co.kr/rss/rssdata/total_news.xml', rss2:'https://news.google.com/rss/search?q=경향신문&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'hankyung', name:'한국경제', cat:'경제지',     color:'#c2410c', on:true,  rss:'https://www.hankyung.com/feed/all-news', rss2:'https://news.google.com/rss/search?q=한국경제&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'mk',       name:'매일경제', cat:'경제지',     color:'#1d4ed8', on:true,  rss:'https://www.mk.co.kr/rss/30000001/', rss2:'https://news.google.com/rss/search?q=매일경제&hl=ko&gl=KR&ceid=KR:ko'},
+  {id:'edaily',   name:'이데일리', cat:'경제지',     color:'#0369a1', on:true,  rss:'https://www.edaily.co.kr/rss/rss.xml', rss2:'https://news.google.com/rss/search?q=이데일리&hl=ko&gl=KR&ceid=KR:ko'},
   {id:'etnews',   name:'전자신문',   cat:'IT·테크', color:'#0ea5e9', on:true, rss:'https://rss.etnews.com/Section901.xml', rss2:'https://news.google.com/rss/search?q=전자신문&hl=ko&gl=KR&ceid=KR:ko'},
   {id:'zdnet',    name:'지디넷코리아', cat:'IT·테크', color:'#2563eb', on:true, rss:'https://feeds.feedburner.com/zdkorea', rss2:'https://news.google.com/rss/search?q=지디넷코리아&hl=ko&gl=KR&ceid=KR:ko'},
   {id:'bloter',   name:'블로터',     cat:'IT·테크', color:'#ef4444', on:true, rss:'https://www.bloter.net/rss/allArticle.xml', rss2:'https://news.google.com/rss/search?q=블로터&hl=ko&gl=KR&ceid=KR:ko'},
@@ -469,7 +469,7 @@ const SOURCES=[
   {id:'ddaily',   name:'디지털데일리', cat:'IT·테크', color:'#f59e0b', on:true, rss:'https://www.ddaily.co.kr/rss/allArticle.xml', rss2:'https://news.google.com/rss/search?q=디지털데일리&hl=ko&gl=KR&ceid=KR:ko'},
   {id:'techm',    name:'테크M',      cat:'IT·테크', color:'#8b5cf6', on:true, rss:'https://www.techm.kr/rss/allArticle.xml', rss2:'https://news.google.com/rss/search?q=테크M&hl=ko&gl=KR&ceid=KR:ko'},
   {id:'imaeil',   name:'매일신문', cat:'대구·경북',  color:'#15803d', on:true,  rss:'https://news.google.com/rss/search?q=매일신문+대구&hl=ko&gl=KR&ceid=KR:ko', rss2:'https://www.imaeil.com/rss/allNews'},
-  {id:'yeongnam', name:'영남일보', cat:'대구·경북',  color:'#7c2d12', on:true,  rss:'https://news.google.com/rss/search?q=영남일보+경북&hl=ko&gl=KR&ceid=KR:ko', rss2:'https://www.yeongnam.com/rss/allArticle.xml'},
+  {id:'yeongnam', name:'영남일보', cat:'대구·경북',  color:'#7c2d12', on:true,  rss:'https://news.google.com/rss/search?q=영남일보+경북&hl=ko&gl=KR&ceid=KR:ko', rss2:'https://www.yeongnam.com/rss/allArticle.xml'}
 ];
 
 const TOPICS=[
