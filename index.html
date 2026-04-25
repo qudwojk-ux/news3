@@ -110,6 +110,12 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--hdr-h);backg
   border-color:#9ca3af;
   background:#ffffff;
 }
+/* 라이트 모드에서 활성화된 정렬 및 개수 버튼 (검은 배경, 흰 글씨) */
+:root.light .sort-btn.active, :root.light .cnt-btn.active {
+  background:#000000;
+  border-color:#000000;
+  color:#ffffff;
+}
 :root.light .ctrl-lbl{color:#374151;font-weight:700}
 :root.light .ctrl-bar{background:#f0f2f8}
 :root.light .status-txt{color:#16a34a}
